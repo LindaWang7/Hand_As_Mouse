@@ -1,16 +1,33 @@
-# This is a sample Python script.
+import cv2
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+cap = cv2.VideoCapture(0)
+cap.set (3,1280)
+cap.set (4,720)
 
+while True:
+    success, img = cap.read()
+    cv2.imshow ("Image", img)
+    cv2.waitKey(1)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# import cv2;
+#
+# face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml');
+#
+# video = cv2.VideoCapture(0);
+#
+# while True:
+#     check, frame = video.read();
+#     faces = face_cascade.detectMultiScale(frame,
+#                                           scaleFactor=1.1, minNeighbors=5);
+#     for x,y,w,h in faces:
+#         frame = cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 3);
+#
+#     cv2.imshow('Face Detector', frame);
+#
+#     key = cv2.waitKey(1);
+#
+#     if key == ord('q'):
+#         break;
+#
+# video.release();
+# cv2.destroyAllWindows();
